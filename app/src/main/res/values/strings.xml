@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name" translatable="false">CRUD</string>
+    <string name="str_titulomenu">Task list</string>
+    <string name="str_titulotarea">Task name</string>
+    <string name="str_tipofecha" translatable="false">dd/mm/yyyy</string>
+    <string name="str_hora" translatable="false">hh:mm</string>
+    <string name="str_info">Information</string>
+    <string name="str_editar">Edit</string>
+    <string name="str_borrar">Delete</string>
+    <string name="str_nueva">New</string>
+    <string name="str_ordenar">Order</string>
+    <string name="str_salir">Exit</string>
+    <string name="str_categoria">By category</string>
+    <string name="str_fecha">By date</string>
+    <string name="str_tituloborrar">Delete task</string>
+    <string name="str_textoborrar">Do you want to delete the task?</string>
+    <string name="str_si">Yes</string>
+    <string name="str_no" translatable="false">No</string>
+    <string name="str_textosalir">Do you want to exit the app?</string>
+</resources>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="str_titulomenu">Lista tareas</string>
+    <string name="str_titulotarea">Nombre tarea</string>
+    <string name="str_info">Información</string>
+    <string name="str_editar">Editar</string>
+    <string name="str_borrar">Borrar</string>
+    <string name="str_nueva">Nueva</string>
+    <string name="str_ordenar">Ordenar</string>
+    <string name="str_salir">Salir</string>
+    <string name="str_categoria">Por categoria</string>
+    <string name="str_fecha">Por fecha</string>
+    <string name="str_tituloborrar">Borrar tarea</string>
+    <string name="str_textoborrar">¿Quieres borrar la tarea?</string>
+    <string name="str_si">Si</string>
+    <string name="str_textosalir">¿Quieres eliminar la tarea?</string>
+</resources>
