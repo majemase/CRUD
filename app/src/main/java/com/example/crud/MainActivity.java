@@ -12,6 +12,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
@@ -35,13 +36,13 @@ public class MainActivity extends AppCompatActivity {
             return insets;
         });
 
-        setSupportActionBar(findViewById(R.id.menuprincipal));
-        init();
-
         addTarea();
+        init();
     }
 
     public void init(){
+        setSupportActionBar(findViewById(R.id.menuprincipal));
+
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setCancelable(false)
                 .setTitle(R.string.str_tituloborrar)
@@ -57,7 +58,12 @@ public class MainActivity extends AppCompatActivity {
                 .setPositiveButton(R.string.str_si, (dialog, which) -> finish());
         alertsalir = builder.create();
 
-        vistatareas = findViewById(R.id.recyclerview);
+        vistatareas = findViewById(R.id.vistatareas);
+
+        LinearLayoutManager disposicion = new LinearLayoutManager(getApplicationContext());
+        vistatareas.setLayoutManager(disposicion);
+        AdaptadorTarea adapter = new AdaptadorTarea(listatareas);
+        vistatareas.setAdapter(adapter);
     }
 
     @Override
@@ -93,6 +99,12 @@ public class MainActivity extends AppCompatActivity {
         t = new Tarea("Estudiar AD", new Date(), 3);
         listatareas.add(t);
         t = new Tarea("Limpiar el baño", new Date(), 1);
+        listatareas.add(t);
+        t = new Tarea("Echar gasolina", new Date(), 2);
+        listatareas.add(t);
+        t = new Tarea("Comprar Cafe", new Date(), 2);
+        listatareas.add(t);
+        t = new Tarea("Estudiar PSP", new Date(), 3);
         listatareas.add(t);
     }
 }
