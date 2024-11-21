@@ -1,5 +1,6 @@
 package com.example.crud;
 
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -7,6 +8,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.text.SimpleDateFormat;
@@ -49,6 +51,12 @@ public class AdaptadorTarea extends RecyclerView.Adapter<AdaptadorTarea.HolderTa
                 holder.categoriatarea.setImageResource(R.drawable.categoria3);
                 break;
         }
+
+        holder.carta.setOnClickListener(v -> {
+            Intent intent = new Intent(v.getContext(), EditarTarea.class);
+            intent.putExtra("id", dataset.get(position).getId());
+            v.getContext().startActivity(intent);
+        });
     }
 
     @Override
@@ -57,11 +65,13 @@ public class AdaptadorTarea extends RecyclerView.Adapter<AdaptadorTarea.HolderTa
     }
 
     public class HolderTarea extends RecyclerView.ViewHolder{
+        CardView carta;
         TextView titulotarea, fecha, hora;
         ImageView categoriatarea;
 
         public HolderTarea(@NonNull View itemView) {
             super(itemView);
+            carta = itemView.findViewById(R.id.carta);
             titulotarea = itemView.findViewById(R.id.titulotarea);
             fecha = itemView.findViewById(R.id.fechatarea);
             hora = itemView.findViewById(R.id.horatarea);

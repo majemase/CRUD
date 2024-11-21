@@ -14,4 +14,8 @@
     <string name="str_textoborrar">¿Quieres borrar la tarea?</string>
     <string name="str_si">Si</string>
     <string name="str_textosalir">¿Quieres eliminar la tarea?</string>
+    <string name="str_tituloedit">Información tarea</string>
+    <string name="str_volver">Volver</string>
+    <string name="str_nombrecat">Nombre categoria</string>
+    <string name="str_desc">Descripción</string>
 </resources>

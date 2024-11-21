@@ -7,6 +7,7 @@
     android:backgroundTint="@color/amarillo">
 
     <androidx.cardview.widget.CardView
+        android:id="@+id/carta"
         android:layout_width="match_parent"
         android:layout_height="150dp"
         android:layout_margin="10dp"
@@ -17,7 +18,7 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:backgroundTint="@color/amarillo"
             android:padding="10dp">
 

@@ -12,8 +12,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.google.android.material.snackbar.Snackbar;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -64,6 +67,25 @@ public class MainActivity extends AppCompatActivity {
         vistatareas.setLayoutManager(disposicion);
         AdaptadorTarea adapter = new AdaptadorTarea(listatareas);
         vistatareas.setAdapter(adapter);
+
+        new ItemTouchHelper(new ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.RIGHT) {
+            @Override
+            public boolean onMove(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder, @NonNull RecyclerView.ViewHolder target) {
+                return false;
+            }
+
+            @Override
+            public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
+                Tarea t = listatareas.get(viewHolder.getAdapterPosition());
+                int pos = viewHolder.getAdapterPosition();
+                listatareas.remove(pos);
+                adapter.notifyItemRemoved(pos);
+                Snackbar.make(vistatareas, t.getTitulo(), Snackbar.LENGTH_LONG).setAction("Deshacer", v -> {
+                    listatareas.add(pos, t);
+                    adapter.notifyItemInserted(pos);
+                }).show();
+            }
+        }).attachToRecyclerView(vistatareas);
     }
 
     @Override
@@ -90,21 +112,23 @@ public class MainActivity extends AppCompatActivity {
     private void addTarea(){
         Tarea t;
 
-        t = new Tarea("Limpiar la cocina", new Date(), 1);
+        String lorem = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. ";
+
+        t = new Tarea(1, "Limpiar la cocina", new Date(), 1, lorem);
         listatareas.add(t);
-        t = new Tarea("Comprar pan", new Date(), 2);
+        t = new Tarea(8, "Comprar pan", new Date(), 2, lorem);
         listatareas.add(t);
-        t = new Tarea("Estudiar PMDM", new Date(), 3);
+        t = new Tarea(2, "Estudiar PMDM", new Date(), 3, lorem);
         listatareas.add(t);
-        t = new Tarea("Estudiar AD", new Date(), 3);
+        t = new Tarea(3, "Estudiar AD", new Date(), 3, lorem);
         listatareas.add(t);
-        t = new Tarea("Limpiar el baño", new Date(), 1);
+        t = new Tarea(4, "Limpiar el baño", new Date(), 1, lorem);
         listatareas.add(t);
-        t = new Tarea("Echar gasolina", new Date(), 2);
+        t = new Tarea(5, "Echar gasolina", new Date(), 2, lorem);
         listatareas.add(t);
-        t = new Tarea("Comprar Cafe", new Date(), 2);
+        t = new Tarea(6, "Comprar Cafe", new Date(), 2, lorem);
         listatareas.add(t);
-        t = new Tarea("Estudiar PSP", new Date(), 3);
+        t = new Tarea(7, "Estudiar PSP", new Date(), 3, lorem);
         listatareas.add(t);
     }
 }
