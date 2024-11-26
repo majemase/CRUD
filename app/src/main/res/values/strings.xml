@@ -21,5 +21,7 @@
     <string name="str_volver">Go back</string>
     <string name="str_nombrecat">Category name</string>
     <string name="str_desc">Description</string>
-    <string name="title_activity_editar_tarea">editar_tarea</string>
+    <string name="str_categoria1">Cleaning</string>
+    <string name="str_categoria2">Shopping</string>
+    <string name="str_categoria3">Study</string>
 </resources>

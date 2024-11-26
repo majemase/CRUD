@@ -5,4 +5,5 @@
     <color name="azul">#FF0000FF</color>
     <color name="amarillo">#FFF5B3</color>
     <color name="azulclaro">#00A6FF</color>
+    <color name="gris">#999999</color>
 </resources>

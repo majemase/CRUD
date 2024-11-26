@@ -26,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
 
     AlertDialog alertborrar, alertsalir;
     RecyclerView vistatareas;
-    List<Tarea> listatareas = new ArrayList<Tarea>();
+    public static List<Tarea> listatareas = new ArrayList<Tarea>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

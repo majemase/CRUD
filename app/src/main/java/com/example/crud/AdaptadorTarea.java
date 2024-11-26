@@ -53,7 +53,7 @@ public class AdaptadorTarea extends RecyclerView.Adapter<AdaptadorTarea.HolderTa
         }
 
         holder.carta.setOnClickListener(v -> {
-            Intent intent = new Intent(v.getContext(), EditarTarea.class);
+            Intent intent = new Intent(v.getContext(), VerTarea.class);
             intent.putExtra("id", dataset.get(position).getId());
             v.getContext().startActivity(intent);
         });
